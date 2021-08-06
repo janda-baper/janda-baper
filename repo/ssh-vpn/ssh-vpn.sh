@@ -12,12 +12,12 @@ ver=$VERSION_ID
 
 #detail nama perusahaan
 country=ID
-state=Indonesia
-locality=Indonesia
-organization=www.lestakun.tech
-organizationalunit=www.lestakun.tech
-commonname=www.lestakun.tech
-email=lesta@lestakun.tech
+state=JATIM
+locality=KEDIRI
+organization=www.janda-baper.my.id
+organizationalunit=www.janda-baper.my.id
+commonname=www.janda-baper.my.id
+email=admin@janda-baper.my.id
 
 # simple password minimal
 wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/password"
@@ -188,14 +188,14 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/lesta-1/sc/main/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/nginx.conf"
 mkdir -p /home/vps/public_html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/lesta-1/sc/main/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/vps.conf"
 /etc/init.d/nginx restart
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/lesta-1/sc/main/badvpn-udpgw64"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -226,7 +226,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 # install squid
 cd
 apt -y install squid3
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/lesta-1/sc/main/squid3.conf"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
 
 # setting vnstat
@@ -284,8 +284,8 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 /etc/init.d/stunnel4 restart
 
 #install badvpncdn
-wget https://github.com/ambrop72/badvpn/archive/master.zip
-unzip master.zip
+wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/badvpn-master.zip
+unzip badvpn-master.zip
 cd badvpn-master
 mkdir build
 cmake .. -DBUILD_NOTHING_BY_DEFAULT=1 -DBUILD_UDPGW=1
@@ -294,7 +294,7 @@ sudo make install
 END
 
 #OpenVPN
-wget https://raw.githubusercontent.com/lesta-1/sc/main/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
+wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
 
 # install fail2ban
 apt -y install fail2ban
@@ -355,41 +355,41 @@ apt -y install figlet
 
 # download script
 cd /usr/bin
-wget -O add-host "https://raw.githubusercontent.com/lesta-1/sc/main/add-host.sh"
-wget -O about "https://raw.githubusercontent.com/lesta-1/sc/main/about.sh"
-wget -O menu "https://raw.githubusercontent.com/lesta-1/sc/main/menu.sh"
-wget -O usernew "https://raw.githubusercontent.com/lesta-1/sc/main/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/lesta-1/sc/main/trial.sh"
-wget -O hapus "https://raw.githubusercontent.com/lesta-1/sc/main/hapus.sh"
-wget -O member "https://raw.githubusercontent.com/lesta-1/sc/main/member.sh"
-wget -O delete "https://raw.githubusercontent.com/lesta-1/sc/main/delete.sh"
-wget -O cek "https://raw.githubusercontent.com/lesta-1/sc/main/cek.sh"
-wget -O restart "https://raw.githubusercontent.com/lesta-1/sc/main/restart.sh"
-wget -O speedtest "https://raw.githubusercontent.com/lesta-1/sc/main/speedtest_cli.py"
-wget -O info "https://raw.githubusercontent.com/lesta-1/sc/main/info.sh"
-wget -O ram "https://raw.githubusercontent.com/lesta-1/sc/main/ram.sh"
-wget -O renew "https://raw.githubusercontent.com/lesta-1/sc/main/renew.sh"
-wget -O autokill "https://raw.githubusercontent.com/lesta-1/sc/main/autokill.sh"
-wget -O ceklim "https://raw.githubusercontent.com/lesta-1/sc/main/ceklim.sh"
-wget -O tendang "https://raw.githubusercontent.com/lesta-1/sc/main/tendang.sh"
+wget -O add-host "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/add-host.sh"
+wget -O about "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/about.sh"
+wget -O menu "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/menu.sh"
+wget -O usernew "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/usernew.sh"
+wget -O trial "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/trial.sh"
+wget -O hapus "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/hapus.sh"
+wget -O member "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/member.sh"
+wget -O delete "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/delete.sh"
+wget -O cek "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/cek.sh"
+wget -O restart "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/restart.sh"
+wget -O speedtest "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/speedtest_cli.py"
+wget -O info "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/info.sh"
+wget -O ram "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/ram.sh"
+wget -O renew "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/renew.sh"
+wget -O autokill "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/autokill.sh"
+wget -O ceklim "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/ceklim.sh"
+wget -O tendang "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/tendang.sh"
 wget -O clear-log "https://raw.githubusercontent.com/lesta-1/sc/main/clear-log.sh"
-wget -O change-port "https://raw.githubusercontent.com/lesta-1/sc/main/change.sh"
-wget -O port-ovpn "https://raw.githubusercontent.com/lesta-1/sc/main/port-ovpn.sh"
-wget -O port-ssl "https://raw.githubusercontent.com/lesta-1/sc/main/port-ssl.sh"
-wget -O port-wg "https://raw.githubusercontent.com/lesta-1/sc/main/port-wg.sh"
-wget -O port-tr "https://raw.githubusercontent.com/lesta-1/sc/main/port-tr.sh"
-wget -O port-sstp "https://raw.githubusercontent.com/lesta-1/sc/main/port-sstp.sh"
-wget -O port-squid "https://raw.githubusercontent.com/lesta-1/sc/main/port-squid.sh"
-wget -O port-ws "https://raw.githubusercontent.com/lesta-1/sc/main/port-ws.sh"
-wget -O port-vless "https://raw.githubusercontent.com/lesta-1/sc/main/port-vless.sh"
-wget -O wbmn "https://raw.githubusercontent.com/lesta-1/sc/main/webmin.sh"
-wget -O xp "https://raw.githubusercontent.com/lesta-1/sc/main/xp.sh"
-wget -O kernel-updt "https://raw.githubusercontent.com/lesta-1/sc/main/kernel-update.sh"
-wget -O cfd "https://raw.githubusercontent.com/lesta-1/sc/main/cfd.sh"
-wget -O cff "https://raw.githubusercontent.com/lesta-1/sc/main/cff.sh"
-wget -O cfh "https://raw.githubusercontent.com/lesta-1/sc/main/cfh.sh"
+wget -O change-port "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/change.sh"
+wget -O port-ovpn "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/port-ovpn.sh"
+wget -O port-ssl "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/port-ssl.sh"
+wget -O port-wg "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/port-wg.sh"
+wget -O port-tr "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/port-tr.sh"
+wget -O port-sstp "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/port-sstp.sh"
+wget -O port-squid "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/port-squid.sh"
+wget -O port-ws "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/port-ws.sh"
+wget -O port-vless "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/port-vless.sh"
+wget -O wbmn "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/webmin.sh"
+wget -O xp "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/xp.sh"
+wget -O kernel-updt "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/update1.2.sh"
+wget -O cfd "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/cfd.sh"
+wget -O cff "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/cff.sh"
+wget -O cfh "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/cfh.sh"
 wget -O autoreboot "https://raw.githubusercontent.com/lesta-1/sc/main/autoreboot.sh"
-wget -O swap "https://raw.githubusercontent.com/lesta-1/sc/main/swapkvm.sh"
+wget -O swap "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/swapkvm.sh"
 wget -O /usr/bin/user-limit https://raw.githubusercontent.com/lesta-1/sc/main/user-limit.sh && chmod +x /usr/bin/user-limit
 chmod +x add-host
 chmod +x menu
