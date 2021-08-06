@@ -20,7 +20,7 @@ commonname=www.lestakun.tech
 email=lesta@lestakun.tech
 
 # simple password minimal
-wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/lesta-1/sc/main/password"
+wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/password"
 chmod +x /etc/pam.d/common-password
 
 # go to root
