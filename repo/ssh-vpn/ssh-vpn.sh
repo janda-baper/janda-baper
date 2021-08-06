@@ -43,7 +43,7 @@ WantedBy=multi-user.target
 END
 
 # Getting Proxy Template
-wget -q -O /usr/local/bin/edu-proxy https://raw.githubusercontent.com/lesta-1/sc/main/proxy-templated.py
+wget -q -O /usr/local/bin/edu-proxy https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/proxy-templated.py
 chmod +x /usr/local/bin/edu-proxy
 
 # Installing Service
@@ -73,7 +73,7 @@ systemctl restart edu-proxy
 clear
 
 # Getting Proxy Template Ssl
-wget -q -O /usr/local/bin/edu-proxyssl https://raw.githubusercontent.com/lesta-1/sc/main/proxy-templatedssl.py
+wget -q -O /usr/local/bin/edu-proxyssl https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/proxy-templatedssl.py
 chmod +x /usr/local/bin/edu-proxyssl
 
 # Installing Service
@@ -103,7 +103,7 @@ systemctl restart edu-proxyssl
 clear
 
 # Getting Proxy Template Ovpn
-wget -q -O /usr/local/bin/edu-proxyovpn https://raw.githubusercontent.com/lesta-1/sc/main/proxy-templatedovpn.py
+wget -q -O /usr/local/bin/edu-proxyovpn https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/proxy-templatedovpn.py
 chmod +x /usr/local/bin/edu-proxyovpn
 
 # Installing Service
