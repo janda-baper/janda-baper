@@ -10,8 +10,8 @@ apt install curl -y
 apt install zip
 
 cd /usr/bin
-wget -O add-trgo "https://raw.githubusercontent.com/lesta-1/sc/main/add-trgo.sh"
-wget -O bbr "https://raw.githubusercontent.com/lesta-1/sc/main/bbr.sh"
+wget -O add-trgo "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/trojan/add-trgo.sh"
+wget -O bbr "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/trojan/bbr.sh"
 chmod +x add-trgo
 chmod +x bbr
 # Domain 
@@ -29,9 +29,9 @@ touch /etc/trojan-go/uuid.txt
 mkdir -p /etc/trojan-go/
 chmod 777 /etc/trojan-go/
 touch /etc/trojan-go/trojan-go.pid
-wget -O /etc/trojan-go/trojan-go https://github.com/lesta-1/sc/raw/main/trojan-go
-wget -O /etc/trojan-go/geoip.dat https://raw.githubusercontent.com/lesta-1/sc/main/geoip.dat
-wget -O /etc/trojan-go/geosite.dat https://raw.githubusercontent.com/lesta-1/sc/main/geosite.dat
+wget -O /etc/trojan-go/trojan-go https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/trojan/trojan-go
+wget -O /etc/trojan-go/geoip.dat https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/trojan/geoip.dat
+wget -O /etc/trojan-go/geosite.dat https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/trojan/geosite.dat
 chmod +x /etc/trojan-go/trojan-go
 
 cat <<EOF > /etc/trojan-go/config.json
