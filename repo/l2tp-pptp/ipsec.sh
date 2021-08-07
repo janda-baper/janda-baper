@@ -277,12 +277,12 @@ mkdir -p /run/pluto
 service fail2ban restart 2>/dev/null
 service ipsec restart 2>/dev/null
 service xl2tpd restart 2>/dev/null
-wget -O /usr/bin/add-l2tp https://raw.githubusercontent.com/lesta-1/sc/main/add-l2tp.sh && chmod +x /usr/bin/add-l2tp
-wget -O /usr/bin/del-l2tp https://raw.githubusercontent.com/lesta-1/sc/main/del-l2tp.sh && chmod +x /usr/bin/del-l2tp
-wget -O /usr/bin/add-pptp https://raw.githubusercontent.com/lesta-1/sc/main/add-pptp.sh && chmod +x /usr/bin/add-pptp
-wget -O /usr/bin/del-pptp https://raw.githubusercontent.com/lesta-1/sc/main/del-pptp.sh && chmod +x /usr/bin/del-pptp
-wget -O /usr/bin/renew-pptp https://raw.githubusercontent.com/lesta-1/sc/main/renew-pptp.sh && chmod +x /usr/bin/renew-pptp
-wget -O /usr/bin/renew-l2tp https://raw.githubusercontent.com/lesta-1/sc/main/renew-l2tp.sh && chmod +x /usr/bin/renew-l2tp
+wget -O /usr/bin/add-l2tp https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/l2tp-pptp/add-l2tp.sh && chmod +x /usr/bin/add-l2tp
+wget -O /usr/bin/del-l2tp https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/l2tp-pptp/del-l2tp.sh && chmod +x /usr/bin/del-l2tp
+wget -O /usr/bin/add-pptp https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/l2tp-pptp/add-pptp.sh && chmod +x /usr/bin/add-pptp
+wget -O /usr/bin/del-pptp https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/l2tp-pptp/del-pptp.sh && chmod +x /usr/bin/del-pptp
+wget -O /usr/bin/renew-pptp https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/l2tp-pptp/renew-pptp.sh && chmod +x /usr/bin/renew-pptp
+wget -O /usr/bin/renew-l2tp https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/l2tp-pptp/renew-l2tp.sh && chmod +x /usr/bin/renew-l2tp
 touch /var/lib/premium-script/data-user-l2tp
 touch /var/lib/premium-script/data-user-pptp
 rm -f /root/ipsec.sh
