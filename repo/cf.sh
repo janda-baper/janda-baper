@@ -13,7 +13,7 @@ echo "Only For Premium Users"
 exit 0
 fi
 apt install jq curl -y
-DOMAIN=lestakun.tech
+DOMAIN=ipang.me
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
 SUB_DOMAIN=${sub}.ipang.me
 CF_ID=jandabaper17@gmail.com
