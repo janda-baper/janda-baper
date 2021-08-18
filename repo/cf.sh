@@ -4,7 +4,7 @@ green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- ifconfig.me/ip);
 echo "Checking VPS"
-IZIN=$( curl http://akses.rpj08.my.id:81/akses | grep $MYIP )
+IZIN=$( curl https://raw.githubusercontent.com/janda-baper/janda/main/izin | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
 echo -e "${green}Permission Accepted...${NC}"
 else
@@ -15,9 +15,9 @@ fi
 apt install jq curl -y
 DOMAIN=lestakun.tech
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
-SUB_DOMAIN=${sub}.lestakun.tech
-CF_ID=daponedan@gmail.com
-CF_KEY=4f7b99594389851e29b79a9cc695e17776962
+SUB_DOMAIN=${sub}.ipang.me
+CF_ID=jandabaper17@gmail.com
+CF_KEY=5088609fd77833d1f6127a7b056f37b1e644a
 set -euo pipefail
 IP=$(wget -qO- ifconfig.me/ip);
 echo "Updating DNS for ${SUB_DOMAIN}..."
