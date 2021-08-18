@@ -14,10 +14,10 @@ ver=$VERSION_ID
 country=ID
 state=JATIM
 locality=KEDIRI
-organization=www.janda-baper.my.id
-organizationalunit=www.janda-baper.my.id
-commonname=www.janda-baper.my.id
-email=admin@janda-baper.my.id
+organization=www.ipang.me
+organizationalunit=www.ipang.me
+commonname=www.ipang.me
+email=admin@ipang.me
 
 # simple password minimal
 wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/password"
@@ -183,6 +183,17 @@ echo "neofetch" >> .profile
 echo "echo by RADENPANCAL" >> .profile
 echo "echo Ketik menu Untuk Melihat Options" >> .profile
 
+# install sslh multiport
+apt-get -y install sslh
+cat > /etc/default/sslh <<-END
+#Mod By Janda Baper Group
+RUN=yes
+DAEMON=/usr/sbin/sslh
+DAEMON_OPTS="--user sslh --listen 0.0.0.0:443 --ssl 127.0.0.1:443 --ssh 127.0.0.1:22 --ovpn 127.0.0.1:443 -P --pidfile /var/run/sslh/sslh.pid"
+END
+
+/etc/init.d/sslh restart
+
 # install webserver
 apt -y install nginx
 cd
@@ -223,32 +234,10 @@ echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 /etc/init.d/dropbear restart
 
-# install squid
-cd
-apt -y install squid3
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/squid3.conf"
-sed -i $MYIP2 /etc/squid/squid.conf
-
-# setting vnstat
-apt -y install vnstat
-/etc/init.d/vnstat restart
-apt -y install libsqlite3-dev
-wget https://humdi.net/vnstat/vnstat-2.6.tar.gz
-tar zxvf vnstat-2.6.tar.gz
-cd vnstat-2.6
-./configure --prefix=/usr --sysconfdir=/etc && make && make install
-cd
-vnstat -u -i $NET
-sed -i 's/Interface "'""eth0""'"/Interface "'""$NET""'"/g' /etc/vnstat.conf
-chown vnstat:vnstat /var/lib/vnstat -R
-systemctl enable vnstat
-/etc/init.d/vnstat restart
-rm -f /root/vnstat-2.6.tar.gz
-rm -rf /root/vnstat-2.6
-
 # install stunnel
 apt install stunnel4 -y
 cat > /etc/stunnel/stunnel.conf <<-END
+pid = /var/run/stunnel.pid
 cert = /etc/stunnel/stunnel.pem
 client = no
 socket = a:SO_REUSEADDR=1
@@ -256,20 +245,20 @@ socket = l:TCP_NODELAY=1
 socket = r:TCP_NODELAY=1
 
 [dropbear]
-accept = 222
-connect = 127.0.0.1:22
+accept = 127.0.0.1:222
+connect = 0.0.0.0:22
 
 [dropbear]
-accept = 777
-connect = 127.0.0.1:22
+accept = 127.0.0.1443
+connect = 0.0.0.0:22
 
 [openvpn]
-accept = 442
-connect = 127.0.0.1:1194
+accept = 127.0.0.1:443
+connect = 0.0.0.0:1194
 
 [wsssl]
-accept = 443
-connect = 700
+accept = 127.0.0.1:443
+connect = 0.0.0.0:700
 
 END
 
@@ -292,6 +281,29 @@ cmake .. -DBUILD_NOTHING_BY_DEFAULT=1 -DBUILD_UDPGW=1
 sudo make install
 
 END
+
+# install squid
+cd
+apt -y install squid3
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/squid3.conf"
+sed -i $MYIP2 /etc/squid/squid.conf
+
+# setting vnstat
+apt -y install vnstat
+/etc/init.d/vnstat restart
+apt -y install libsqlite3-dev
+wget https://humdi.net/vnstat/vnstat-2.6.tar.gz
+tar zxvf vnstat-2.6.tar.gz
+cd vnstat-2.6
+./configure --prefix=/usr --sysconfdir=/etc && make && make install
+cd
+vnstat -u -i $NET
+sed -i 's/Interface "'""eth0""'"/Interface "'""$NET""'"/g' /etc/vnstat.conf
+chown vnstat:vnstat /var/lib/vnstat -R
+systemctl enable vnstat
+/etc/init.d/vnstat restart
+rm -f /root/vnstat-2.6.tar.gz
+rm -rf /root/vnstat-2.6
 
 #OpenVPN
 wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
@@ -448,6 +460,7 @@ chown -R www-data:www-data /home/vps/public_html
 /etc/init.d/stunnel4 restart
 /etc/init.d/vnstat restart
 /etc/init.d/squid restart
+/etc/init.d/sslh restart
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500
