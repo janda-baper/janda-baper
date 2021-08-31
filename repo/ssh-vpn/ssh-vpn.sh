@@ -14,9 +14,9 @@ ver=$VERSION_ID
 country=ID
 state=JATIM
 locality=KEDIRI
-organization=www.ipang.me
-organizationalunit=www.ipang.me
-commonname=www.ipang.me
+organization=NOTT
+organizationalunit=NETT
+commonname=IPANG
 email=admin@ipang.me
 
 # simple password minimal
