@@ -249,7 +249,7 @@ accept = 127.0.0.1:222
 connect = 0.0.0.0:22
 
 [dropbear]
-accept = 127.0.0.1443
+accept = 127.0.0.1:443
 connect = 0.0.0.0:22
 
 [openvpn]
