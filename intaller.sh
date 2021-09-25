@@ -27,9 +27,8 @@ sleep 2
 reboot
 
 rm -f setup.sh
-
 apt install -y bzip2 gzip coreutils screen curl
 wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/setup.sh
 chmod +x setup.sh
-./setup.sh
+bash setup.sh
 rm -f setup.sh
