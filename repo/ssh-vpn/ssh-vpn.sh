@@ -237,7 +237,6 @@ echo "/usr/sbin/nologin" >> /etc/shells
 # install stunnel
 apt install stunnel4 -y
 cat > /etc/stunnel/stunnel.conf <<-END
-pid = /var/run/stunnel.pid
 cert = /etc/stunnel/stunnel.pem
 client = no
 socket = a:SO_REUSEADDR=1
@@ -245,20 +244,20 @@ socket = l:TCP_NODELAY=1
 socket = r:TCP_NODELAY=1
 
 [dropbear]
-accept = 127.0.0.1:222
-connect = 0.0.0.0:22
+accept = 222
+connect = 127.0.0.1:22
 
 [dropbear]
-accept = 127.0.0.1:443
-connect = 0.0.0.0:22
+accept = 777
+connect = 127.0.0.1:22
 
 [openvpn]
-accept = 127.0.0.1:443
-connect = 0.0.0.0:1194
+accept = 442
+connect = 127.0.0.1:1194
 
 [wsssl]
-accept = 127.0.0.1:443
-connect = 0.0.0.0:700
+accept = 443
+connect = 700
 
 END
 
