@@ -50,7 +50,7 @@ chmod +x /usr/local/bin/edu-proxy
 cat > /etc/systemd/system/edu-proxy.service << END
 [Unit]
 Description=Python Edu Proxy By Radenpancal Service
-Documentation=https://lestakun.tech
+Documentation=https://ipang.me
 After=network.target nss-lookup.target
 
 [Service]
@@ -80,7 +80,7 @@ chmod +x /usr/local/bin/edu-proxyssl
 cat > /etc/systemd/system/edu-proxyssl.service << END
 [Unit]
 Description=Python Edu Ssl Proxy By Radenpancal Service
-Documentation=https://lestakun.tech
+Documentation=https://ipang.me
 After=network.target nss-lookup.target
 
 [Service]
@@ -110,7 +110,7 @@ chmod +x /usr/local/bin/edu-proxyovpn
 cat > /etc/systemd/system/edu-proxyovpn.service << END
 [Unit]
 Description=Python Edu Ovpn Proxy By Radenpancal Service
-Documentation=https://lestakun.tech
+Documentation=https://ipang.me
 After=network.target nss-lookup.target
 
 [Service]
