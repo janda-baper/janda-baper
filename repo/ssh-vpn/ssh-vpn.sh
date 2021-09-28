@@ -189,7 +189,7 @@ cat > /etc/default/sslh <<-END
 #Mod By Janda Baper Group
 RUN=yes
 DAEMON=/usr/sbin/sslh
-DAEMON_OPTS="--user sslh --listen $MYIP:443 --ssl 127.0.0.1:443 --ssh 127.0.0.1:22 --ovpn 127.0.0.1:1194 -P --pidfile /var/run/sslh/sslh.pid"
+DAEMON_OPTS="--user sslh --listen 0.0.0.0:1995 --ssl 127.0.0.1:8443 --ssh 127.0.0.1:22 -P --pidfile /var/run/sslh/sslh.pid"
 END
 
 /etc/init.d/sslh restart
@@ -259,9 +259,9 @@ socket = r:TCP_NODELAY=1
 accept = 222
 connect = 127.0.0.1:22
 
-[dropbear]
-accept = 777
-connect = 127.0.0.1:22
+[ssl]
+accept = 8443
+connect = 127.0.0.1:1995
 
 [openvpn]
 accept = 442
@@ -270,7 +270,6 @@ connect = 127.0.0.1:1194
 [wsssl]
 accept = 443
 connect = 700
-
 END
 
 # make a certificate
