@@ -189,7 +189,7 @@ cat > /etc/default/sslh <<-END
 #Mod By Janda Baper Group
 RUN=yes
 DAEMON=/usr/sbin/sslh
-DAEMON_OPTS="--user sslh --listen 0.0.0.0:443 --ssl 127.0.0.1:443 --ssh 127.0.0.1:22 --ovpn 127.0.0.1:443 -P --pidfile /var/run/sslh/sslh.pid"
+DAEMON_OPTS="--user sslh --listen $MYIP:443 --ssl 127.0.0.1:443 --ssh 127.0.0.1:22 --ovpn 127.0.0.1:1194 -P --pidfile /var/run/sslh/sslh.pid"
 END
 
 /etc/init.d/sslh restart
@@ -230,6 +230,18 @@ apt -y install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 109 -p 69"/g' /etc/default/dropbear
+
+# update dropbear 2020
+wget https://matt.ucc.asn.au/dropbear/dropbear-2020.81.tar.bz2
+bzip2 -cd dropbear-2020.81.tar.bz2 | tar xvf -
+cd dropbear-2020.81
+./configure
+make && make install
+mv /usr/sbin/dropbear /usr/sbin/dropbear1
+ln /usr/local/sbin/dropbear /usr/sbin/dropbear
+echo "/bin/false" >> /etc/shells
+echo "/usr/sbin/nologin" >> /etc/shells
+/etc/init.d/dropbear restart
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 /etc/init.d/dropbear restart
