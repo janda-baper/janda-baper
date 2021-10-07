@@ -260,7 +260,7 @@ accept = 222
 connect = 127.0.0.1:22
 
 [dropbear]
-accept = 777
+accept = 4435
 connect = 127.0.0.1:22
 
 [openvpn]
