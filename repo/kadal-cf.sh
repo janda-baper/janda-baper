@@ -4,7 +4,7 @@ green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- icanhazip.com);
 echo "Checking VPS"
-IZIN=$( curl http://vip-sg1.myvpskuy.xyz:81/BskaoahdmsoahamoaJNlapabsmal | grep $MYIP )
+IZIN=$( curl https://www.ipang.me/index.html | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
 echo -e "${green}Permission Accepted...${NC}"
 else
@@ -17,7 +17,7 @@ DOMAIN=domain kalian
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
 SUB_DOMAIN=${sub}.kadalsquad.tech
 CF_ID=jandabaper17@gmail.com
-CF_KEY=d7646d2edd8f564e0da635c6b8b71c5fba0e2
+CF_KEY=5088609fd77833d1f6127a7b056f37b1e644a
 set -euo pipefail
 IP=$(wget -qO- icanhazip.com);
 echo "Updating DNS for ${SUB_DOMAIN}..."
