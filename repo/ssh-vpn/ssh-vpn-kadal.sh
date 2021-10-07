@@ -14,10 +14,10 @@ ver=$VERSION_ID
 country=ID
 state=JATIM
 locality=KEDIRI
-organization=NOTT
-organizationalunit=NETT
-commonname=IPANG
-email=admin@ipang.me
+organization=KadalsFamily
+organizationalunit=KadalsFamily
+commonname=KadalsFamily
+email=admin@kadalsquad.tech
 
 # simple password minimal
 wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/password"
@@ -184,15 +184,15 @@ echo "echo by RADENPANCAL" >> .profile
 echo "echo Ketik menu Untuk Melihat Options" >> .profile
 
 # install sslh multiport
-apt-get -y install sslh
-cat > /etc/default/sslh <<-END
+#apt-get -y install sslh
+#cat > /etc/default/sslh <<-END
 #Mod By Janda Baper Group
-RUN=yes
-DAEMON=/usr/sbin/sslh
-DAEMON_OPTS="--user sslh --listen $MYIP:443 --ssl 127.0.0.1:443 --ssh 127.0.0.1:22 --ovpn 127.0.0.1:1194 -P --pidfile /var/run/sslh/sslh.pid"
-END
+#RUN=yes
+#DAEMON=/usr/sbin/sslh
+#DAEMON_OPTS="--user sslh --listen $MYIP:443 --ssl 127.0.0.1:443 --ssh 127.0.0.1:22 --ovpn 127.0.0.1:1194 -P --pidfile /var/run/sslh/sslh.pid"
+#END
 
-/etc/init.d/sslh restart
+#/etc/init.d/sslh restart
 
 # install webserver
 apt -y install nginx
