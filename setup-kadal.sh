@@ -27,9 +27,9 @@ exit 0
 fi
 mkdir /var/lib/premium-script;
 echo "IP=" >> /var/lib/premium-script/ipvps.conf
-wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/cf.sh && chmod +x cf.sh && ./cf.sh
+wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/kadal-cf.sh && chmod +x kadal-cf.sh && ./kadal-cf.sh
 #install ssh ovpn
-wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssh-vpn/ssh-vpn-kadal.sh && chmod +x ssh-vpn-kadal.sh && screen -S ssh-vpn-kadal ./ssh-vpn-kadal.sh
 wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/sstp/sstp.sh && chmod +x sstp.sh && screen -S sstp ./sstp.sh
 #install ssr
 wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ssr/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
@@ -38,7 +38,7 @@ wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ss/sodo
 wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/wg/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 #install v2ray
 wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ws/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
-wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/trojan/ins-trojang.sh && chmod +x ins-trojango.sh && screen -S Trojan-go ./ins-trojango.sh
+wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/trojan/ins-trojang.sh && chmod +x ins-trojang.sh && screen -S Trojan-go ./ins-trojang.sh
 #install L2TP
 wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/l2tp-pptp/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
 wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/set-br/set-br.sh && chmod +x set-br.sh && ./set-br.sh
@@ -52,11 +52,11 @@ rm -f /root/ins-vt.sh
 rm -f /root/ipsec.sh
 rm -f /root/set-br.sh
 rm -f /root/cf.sh
-rm -f /root/ins-trojango.sh
+rm -f /root/ins-trojang.sh
 cat <<EOF> /etc/systemd/system/autosett.service
 [Unit]
 Description=autosetting
-Documentation=https://lestakun.tech
+Documentation=https://kadalsquad.tech
 
 [Service]
 Type=oneshot
