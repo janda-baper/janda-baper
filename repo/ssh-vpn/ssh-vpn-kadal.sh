@@ -50,7 +50,7 @@ chmod +x /usr/local/bin/edu-proxy
 cat > /etc/systemd/system/edu-proxy.service << END
 [Unit]
 Description=Python Edu Proxy By Radenpancal Service
-Documentation=https://lestakun.tech
+Documentation=https://kadalsquad.tech
 After=network.target nss-lookup.target
 
 [Service]
@@ -80,7 +80,7 @@ chmod +x /usr/local/bin/edu-proxyssl
 cat > /etc/systemd/system/edu-proxyssl.service << END
 [Unit]
 Description=Python Edu Ssl Proxy By Radenpancal Service
-Documentation=https://lestakun.tech
+Documentation=https://kadalsquad.tech
 After=network.target nss-lookup.target
 
 [Service]
@@ -110,7 +110,7 @@ chmod +x /usr/local/bin/edu-proxyovpn
 cat > /etc/systemd/system/edu-proxyovpn.service << END
 [Unit]
 Description=Python Edu Ovpn Proxy By Radenpancal Service
-Documentation=https://lestakun.tech
+Documentation=https://kadalsquad.tech
 After=network.target nss-lookup.target
 
 [Service]
@@ -471,7 +471,7 @@ chown -R www-data:www-data /home/vps/public_html
 /etc/init.d/stunnel4 restart
 /etc/init.d/vnstat restart
 /etc/init.d/squid restart
-/etc/init.d/sslh restart
+#/etc/init.d/sslh restart
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500
@@ -488,6 +488,7 @@ cd
 rm -f /root/key.pem
 rm -f /root/cert.pem
 rm -f /root/ssh-vpn-kadal.sh
+rm -f /root/dropbear-2020.81.tar.bz2
 
 apt install dnsutils jq -y
 apt-get install net-tools -y
