@@ -487,7 +487,7 @@ echo "unset HISTFILE" >> /etc/profile
 cd
 rm -f /root/key.pem
 rm -f /root/cert.pem
-rm -f /root/ssh-vpn.sh
+rm -f /root/ssh-vpn-kadal.sh
 
 apt install dnsutils jq -y
 apt-get install net-tools -y
