@@ -13,7 +13,7 @@ echo "Only For Premium Users"
 exit 0
 fi
 apt install jq curl -y
-DOMAIN=domain kalian
+DOMAIN=kadalsquad.tech
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
 SUB_DOMAIN=${sub}.kadalsquad.tech
 CF_ID=jandabaper09@gmail.com
