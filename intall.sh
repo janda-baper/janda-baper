@@ -23,8 +23,6 @@ echo "Telegram t.me/jessy009"
 apt-get update
 apt-get upgrade -y
 update-grub
-sleep 2
-reboot
 
 rm -f setup-kadal.sh
 sysctl -w net.ipv6.conf.all.disable_ipv6=1
