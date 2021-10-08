@@ -56,7 +56,7 @@ rm -f /root/ins-trojang.sh
 cat <<EOF> /etc/systemd/system/autosett.service
 [Unit]
 Description=autosetting
-Documentation=https://kadalsquad.tech
+Documentation=https://kadal-squad.xyz
 
 [Service]
 Type=oneshot
