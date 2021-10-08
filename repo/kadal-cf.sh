@@ -13,9 +13,9 @@ echo "Only For Premium Users"
 exit 0
 fi
 apt install jq curl -y
-DOMAIN=kadalsquad.tech
+DOMAIN=kadal-squad.xyz
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
-SUB_DOMAIN=${sub}.kadalsquad.tech
+SUB_DOMAIN=${sub}.kadal-squad.xyz
 CF_ID=jandabaper09@gmail.com
 CF_KEY=3b05a421b699a05a6ceb09c313d318f585b15
 set -euo pipefail
@@ -46,4 +46,4 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')
 echo "Host : $SUB_DOMAIN"
 echo $SUB_DOMAIN > /root/domain
-rm -f /root/cf.sh
+rm -f /root/kadal-cf.sh
