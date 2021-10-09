@@ -133,6 +133,7 @@ systemctl restart edu-proxyovpn
 clear
 
 # nano /etc/bin/wstunnel
+mkdir /etc/bin/wstunnel
 cat > /etc/bin/wstunnel <<-END
 #!/bin/sh -e
 # wstunnel
