@@ -11,7 +11,7 @@ red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- ifconfig.me/ip);
-IZIN=$( curl https://www.ipang.me/index.html | grep $MYIP )
+IZIN=$( curl https://www.ipang.me/ip | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
 echo -e "${green}Permission Accepted...${NC}"
 else
@@ -38,7 +38,7 @@ wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ss/sodo
 wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/wg/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 #install v2ray
 wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ws/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
-wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/trojan/ins-trojang.sh && chmod +x ins-trojang.sh && screen -S Trojan-go ./ins-trojang.sh
+wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/trojan/ins-trojan.sh && chmod +x ins-trojan.sh && screen -S trojan-go ./ins-trojan.sh
 #install L2TP
 wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/l2tp-pptp/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
 wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/set-br/set-br.sh && chmod +x set-br.sh && ./set-br.sh
