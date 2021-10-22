@@ -50,7 +50,7 @@ chmod +x /usr/local/bin/edu-proxy
 cat > /etc/systemd/system/edu-proxy.service << END
 [Unit]
 Description=Python Edu Proxy By Radenpancal Service
-Documentation=https://ipang.me
+Documentation=https://www.ipang.me
 After=network.target nss-lookup.target
 
 [Service]
@@ -80,7 +80,7 @@ chmod +x /usr/local/bin/edu-proxyssl
 cat > /etc/systemd/system/edu-proxyssl.service << END
 [Unit]
 Description=Python Edu Ssl Proxy By Radenpancal Service
-Documentation=https://ipang.me
+Documentation=https://www.ipang.me
 After=network.target nss-lookup.target
 
 [Service]
@@ -110,7 +110,7 @@ chmod +x /usr/local/bin/edu-proxyovpn
 cat > /etc/systemd/system/edu-proxyovpn.service << END
 [Unit]
 Description=Python Edu Ovpn Proxy By Radenpancal Service
-Documentation=https://ipang.me
+Documentation=https://www.ipang.me
 After=network.target nss-lookup.target
 
 [Service]
@@ -180,19 +180,19 @@ sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 apt-get --reinstall --fix-missing install -y bzip2 gzip coreutils wget screen rsyslog iftop htop net-tools zip unzip wget net-tools curl nano sed screen gnupg gnupg1 bc apt-transport-https build-essential dirmngr libxml-parser-perl neofetch git lsof
 echo "clear" >> .profile
 echo "neofetch" >> .profile
-echo "echo by RADENPANCAL" >> .profile
+echo "echo by Ipang Nett Nott" >> .profile
 echo "echo Ketik menu Untuk Melihat Options" >> .profile
 
 # install sslh multiport
-apt-get -y install sslh
-cat > /etc/default/sslh <<-END
+#apt-get -y install sslh
+#cat > /etc/default/sslh <<-END
 #Mod By Janda Baper Group
-RUN=yes
-DAEMON=/usr/sbin/sslh
-DAEMON_OPTS="--user sslh --listen 0.0.0.0:1995 --ssl 127.0.0.1:8443 --ssh 127.0.0.1:22 -P --pidfile /var/run/sslh/sslh.pid"
-END
+#RUN=yes
+#DAEMON=/usr/sbin/sslh
+#DAEMON_OPTS="--user sslh --listen 0.0.0.0:1995 --ssl 127.0.0.1:8443 --ssh 127.0.0.1:22 -P --pidfile /var/run/sslh/sslh.pid"
+#END
 
-/etc/init.d/sslh restart
+#/etc/init.d/sslh restart
 
 # install webserver
 apt -y install nginx
@@ -211,6 +211,11 @@ chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500' /etc/rc.local
+sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7400 --max-clients 500' /etc/rc.local
+sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7500 --max-clients 500' /etc/rc.local
+sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7600 --max-clients 500' /etc/rc.local
+sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7700 --max-clients 500' /etc/rc.local
+sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7800 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7900 --max-clients 500' /etc/bin/wstunnel
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500
@@ -260,8 +265,8 @@ accept = 222
 connect = 127.0.0.1:22
 
 [ssl]
-accept = 8443
-connect = 127.0.0.1:1995
+accept = 4453
+connect = 127.0.0.1:22
 
 [openvpn]
 accept = 442
@@ -470,7 +475,7 @@ chown -R www-data:www-data /home/vps/public_html
 /etc/init.d/stunnel4 restart
 /etc/init.d/vnstat restart
 /etc/init.d/squid restart
-/etc/init.d/sslh restart
+#/etc/init.d/sslh restart
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500
