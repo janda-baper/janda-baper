@@ -2,6 +2,8 @@
 # By RPJ WISANG
 # ==================================================
 
+hostnamectl set-hostname ipang
+
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
 MYIP=$(wget -qO- ifconfig.me/ip);
