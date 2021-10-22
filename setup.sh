@@ -38,7 +38,7 @@ wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ss/sodo
 wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/wg/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 #install v2ray
 wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/ws/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
-wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/trojan/ins-trojang.sh && chmod +x ins-trojang.sh && screen -S Trojan-go ./ins-trojang.sh
+wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/trojan/ins-trojan.sh && chmod +x ins-trojan.sh && screen -S trojan-go ./ins-trojan.sh
 #install L2TP
 wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/l2tp-pptp/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
 wget https://raw.githubusercontent.com/janda-baper/janda-baper/main/repo/set-br/set-br.sh && chmod +x set-br.sh && ./set-br.sh
@@ -83,7 +83,7 @@ echo ""  | tee -a log-install.txt
 echo "   >>> Service & Port"  | tee -a log-install.txt
 echo "   - OpenSSH                 : 22"  | tee -a log-install.txt
 echo "   - OpenVPN                 : TCP 1194, UDP 2200, SSL 442"  | tee -a log-install.txt
-echo "   - Stunnel4                : 222, 777"  | tee -a log-install.txt
+echo "   - Stunnel4                : 222, 4435"  | tee -a log-install.txt
 echo "   - Dropbear                : 109, 143"  | tee -a log-install.txt
 echo "   - Squid Proxy             : 3128, 8080 (limit to IP Server)"  | tee -a log-install.txt
 echo "   - Badvpn                  : 7100, 7200, 7300"  | tee -a log-install.txt
